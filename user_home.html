@@ -7,6 +7,7 @@
   <link rel="icon" href="images/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/sharedLayout.css" />
   <link rel="stylesheet" href="css/user_home.css" />
+  <link rel="stylesheet" href="css/logout.css" />
 </head>
 <body>
   <div class="sidebar">
@@ -78,6 +79,16 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <div id="logoutModal" class="logout-modal">
+    <div class="modal-content">
+      <h3>Are you sure you want to log out?</h3>
+      <div class="modal-buttons">
+        <button id="confirmLogout" class="confirm-btn">Yes</button>
+        <button id="cancelLogout" class="cancel-btn">No</button>
+      </div>
+    </div>
   </div>
 
   <script src="js/dateLinksLogout.js"></script>

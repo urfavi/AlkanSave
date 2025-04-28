@@ -1,0 +1,282 @@
+.title-content {
+padding: 0px;
+overflow-y: auto;
+margin-top: 20px;
+background: #fff3f8;
+padding: 10px;
+height: 480px;
+border-radius: 15px;
+border: 2px solid #f5abc0;
+display: flex;
+flex-wrap: wrap;
+gap: 10px; 
+justify-content: center;
+scroll-behavior: smooth;
+}
+
+.title-content::-webkit-scrollbar {
+width: 8px;
+}
+
+.title-content::-webkit-scrollbar-thumb {
+background: #f5abc0;
+border-radius: 10px;
+}
+
+.title-content::-webkit-scrollbar-track {
+background: #fff3f8;
+margin: 7px;
+}
+
+.title1 {
+font-size: 46px;
+color: #24336e;
+}
+
+.highlight-name {
+color: #f07eae;
+}
+
+.search-bar-wrapper {
+display: flex;
+justify-content: space-between; 
+align-items: center;
+margin-bottom: 20px;
+}
+
+.search-group {
+display: flex;
+align-items: center;
+position: relative;
+}
+
+.search-input {
+padding: 10px 15px;
+border-radius: 999px;
+border: transparent;
+font-family: 'Poppins', sans-serif;
+font-size: 1rem;
+width: 250px;
+transition: all 0.3s ease;
+background-color: #be93c7;
+}
+
+.search-input::placeholder {
+color: white;
+}
+
+.search-input:focus {
+color: white;
+background-color: #fa8fbc;
+}
+
+.search-btn {
+background: transparent;
+border: none;
+cursor: pointer;
+margin-left: -40px;
+z-index: 2;
+color: transparent;
+}
+
+.search-btn img {
+width: 18px;
+height: 18px;
+}
+
+.add-goal-btn {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 10px 10px;;
+background-color: #be93c7;
+color: white;
+font-size: 1rem;
+font-weight: bold;
+border: none;
+border-radius: 100px;
+width: 160px;
+height: 40px;
+margin-left: 20px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.add-goal-btn:hover {
+background-color: #fa8fbc;
+}
+
+.add-goal-btn img {
+width: 20px;
+height: 20px;
+}
+
+.search-results {
+position: absolute;
+top: 100%;
+right: 0;
+background: white;
+border: 1px solid #ccc;
+border-radius: 12px;
+box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+padding: 10px;
+width: 250px;
+max-height: 200px;
+overflow-y: auto;
+z-index: 5;
+}
+
+.search-results p {
+padding: 8px;
+margin: 0;
+font-size: 14px;
+cursor: pointer;
+border-radius: 6px;
+}
+
+.search-results p:hover {
+background-color: #f3f3f3;
+}
+
+.hidden {
+display: none;
+}
+
+.goals-deadline {
+margin-top: 10px;
+background: #fff3f8;
+padding: 10px;
+width: 300px;
+height: 250px;
+border-radius: 15px;
+border: 2px solid #f5abc0;
+display: flex;
+flex-direction: column; 
+gap: 10px; 
+align-items: center; 
+scroll-behavior: smooth;
+}
+
+.category-goal-wrapper {
+display: flex;
+flex-direction: row; 
+gap: 10px; 
+justify-content: flex-start; 
+align-items: center; 
+}
+
+.category, .goal {
+font-size: 20px;
+color: #24336e;
+}
+
+.goal {
+color: #f07eae;
+}
+
+.delete-goal-btn {
+display: flex;
+justify-content: center;  
+align-items: center;  
+padding: 5px;
+background-color: rgb(249, 56, 56);
+color: white;
+font-size: 1rem;
+font-weight: bold;
+border: none;
+border-radius: 100px;
+width: 20px;
+height: 20px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.delete-goal-btn:hover {
+background-color: #fa8fbc;
+}
+
+.delete-goal-btn img {
+width: 10px;
+height: 10px;
+}
+
+.goal-entry {
+display: flex;
+flex-direction: column; 
+background: #ffb8dd;
+padding: 8px 15px;
+max-width: 250px;
+border-radius: 10px;
+margin-bottom: 8px;
+color: #24336e;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.goal-entry p {
+font-size: 15px; 
+margin: 0; 
+text-align: left; 
+}
+
+.goal-entry h2 {
+font-size: 24px; 
+margin: 0; 
+text-align: center; 
+margin-top: 5px; 
+}
+
+.goal-entry:hover {
+background-color: #f398b8;
+animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+0% { transform: rotate(0deg); }
+25% { transform: rotate(1deg); }
+50% { transform: rotate(-1deg); }
+75% { transform: rotate(1deg); }
+100% { transform: rotate(0deg); }
+}
+
+.amountLeft {
+display: flex; 
+justify-content: space-between;
+font-size: 15px; 
+color: #24336e;
+width: 100%; 
+}
+
+.amount {
+font-weight: normal;
+font-size: 15px;
+color: #f07eae; 
+}
+  
+.edit-goal-btn {
+display: flex;
+justify-content: center;  
+align-items: center; 
+gap: 5px; 
+padding: 5px;
+background-color:#be93c7;
+color: white;
+font-size: .7rem;
+font-weight: bold;
+border: none;
+border-radius: 100px;
+width: 100px;
+height: 20px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.edit-goal-btn:hover {
+background-color: #fa8fbc;
+}
+
+.edit-goal-btn img {
+width: 12px;
+height: 12px;
+} 
+  
