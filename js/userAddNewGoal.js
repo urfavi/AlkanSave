@@ -4,4 +4,4 @@ function redirectToPage() {
 
 function goBack() {
     window.history.back();
-}  
+}
