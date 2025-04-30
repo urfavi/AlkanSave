@@ -54,7 +54,7 @@ if (logoutBtn && logoutModal) {
   });
 
   confirmLogout?.addEventListener("click", () => {
-      window.location.href = "index.html"; 
+      window.location.href = "landing.html"; 
   });
 
   cancelLogout?.addEventListener("click", () => {
