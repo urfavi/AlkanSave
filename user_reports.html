@@ -6,8 +6,9 @@
   <title>AlkanSave - Transaction History</title>
   <link rel="icon" href="images/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/sharedLayout.css" />
-  <link rel="stylesheet" href="css/user_transaction.css" />
+  <link rel="stylesheet" href="css/user_reports.css" />
   <link rel="stylesheet" href="css/logout.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="sidebar">
@@ -28,7 +29,22 @@
   </div>
 
   <div class="main-content">
-    <h1 class="title1">Transaction <span class="highlight-name">History</span></h1>
+    <h1 class="title1">Reports</h1>
+    <!-- Achievements & Top Categories Section -->
+    <div class="top-section">
+      <div class="achievements">
+        <h2 class="section-title">Savings Growth Over Time</h2>
+        <canvas id="categoryBarChart" style="max-height: 300px;"></canvas>
+      </div>
+      
+      <div class="top-categories">
+        <h2 class="section-title">Goal Completion Ratio</h2>
+        <canvas id="goalDoughnutChart" style="max-height: 300px;"></canvas>
+      </div>
+    </div>
+
+    <h2 class="completed-goals-title">Completed <span style="color: #fa8fbc;">Goals</span></h2>
+  
     <section class="transaction-card">
       <div class="calendar-wrapper">
         <div class="month-card" data-month="January">January</div>
@@ -52,7 +68,8 @@
                 <th>Date</th>
                 <th>Category</th>
                 <th>Goal</th>
-                <th>Amount</th>
+                <th>Amount Saved</th>
+                <th>Target Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -61,48 +78,42 @@
                 <td>Needs</td>
                 <td>Sylus X Jhane</td>
                 <td>+ ₱100,000.00</td>
+                <td>+ ₱100,000.00</td>
               </tr>
               <tr>
                 <td>2025-04-22</td>
                 <td>Savings</td>
                 <td>Weekly Goal</td>
                 <td>+ ₱500</td>
+                <td>+ ₱100,000.00</td>
               </tr>
               <tr>
                 <td>2025-04-22</td>
                 <td>Savings</td>
                 <td>Weekly Goal</td>
                 <td>+ ₱500</td>
+                <td>+ ₱100,000.00</td>
               </tr>
               <tr>
                 <td>2025-04-22</td>
                 <td>Savings</td>
                 <td>Weekly Goal</td>
                 <td>+ ₱500</td>
+                <td>+ ₱100,000.00</td>
               </tr>
               <tr>
                 <td>2025-04-22</td>
                 <td>Savings</td>
                 <td>Weekly Goal</td>
                 <td>+ ₱500</td>
+                <td>+ ₱100,000.00</td>
               </tr>
               <tr>
                 <td>2025-04-22</td>
                 <td>Savings</td>
                 <td>Weekly Goal</td>
                 <td>+ ₱500</td>
-              </tr>
-              <tr>
-                <td>2025-04-22</td>
-                <td>Savings</td>
-                <td>Weekly Goal</td>
-                <td>+ ₱500</td>
-              </tr>
-              <tr>
-                <td>2025-04-22</td>
-                <td>Savings</td>
-                <td>Weekly Goal</td>
-                <td>+ ₱500</td>
+                <td>+ ₱100,000.00</td>
               </tr>
             </tbody>
           </table>
@@ -121,8 +132,8 @@
     </div>
   </div>
 
-  <script src="js/user_transaction.js"></script>
+  <script src="js/user_reports.js"></script>
   <script src="js/dateLinksLogout.js"></script>
-
+  <script src="js/chartSetup.js"></script>
 </body>
 </html>
