@@ -1,41 +1,52 @@
-const userCard = document.getElementById("userDetails");
-const modal = document.getElementById("viewUser");
-const cancelBtn = document.getElementById("cancelviewUser");
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("viewUser");
+  const userDetails = document.getElementById("userDetails");
+  const cancelModal = document.getElementById("cancelViewUserModal");
+  const userMgmtLink = document.getElementById("userManagementLink");
 
-// Input fields inside the modal
-const emailInput = document.getElementById("userEmail");
-const lastLoginInput = document.getElementById("dateToday");
-const goalList = document.getElementById("userGoalsList");
-const totalSavings = document.getElementById("userTSavings");
+  userDetails.addEventListener("click", function() {
+    modal.classList.remove("hide");
+    modal.classList.add("show");
+  });
 
-// Simulated user data (you can replace this with dynamic data from backend)
-const userData = {
-email: "mothergaile@gmail.com",
-lastLogin: "2025-04-30", // format: yyyy-mm-dd
-goal: "Trip to Canada",
-savings: "P 30,000.00"
-};
+  cancelModal.addEventListener("click", function() {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+  });
 
-// When the user card is clicked
-userCard.addEventListener("click", () => {
-// Fill in modal fields
-emailInput.value = userData.email;
-lastLoginInput.value = userData.lastLogin;
-goalList.innerHTML = `<h3>${userData.goal}</h3>`;
-totalSavings.textContent = userData.savings;
-
-// Show the modal
-modal.style.display = "block";
+  userMgmtLink.addEventListener("click", function(e) {
+    if (window.location.pathname.includes("admin_userM.html")) {
+      e.preventDefault();
+      modal.classList.remove("show");
+      modal.classList.add("hide");
+    }
+  });
 });
 
-// Close the modal when cancel button is clicked
-cancelBtn.addEventListener("click", () => {
-modal.style.display = "none";
-});
-
-// Optional: Close modal when clicking outside of it
-window.addEventListener("click", (e) => {
-if (e.target === modal) {
-    modal.style.display = "none";
+function redirectToPage() {
+  window.location.href = 'admin_userMDAcc.html';
 }
-});
+
+function goBack() {
+  window.location.href = 'admin_userM.html';
+}
+
+const userAccount = document.getElementById("userAccount");
+const accountModal = document.getElementById("accountModal");
+const activateAccount = document.getElementById("activateAccount");
+const stayDeactivated = document.getElementById("stayDeactivated");
+
+if (userAccount && accountModal) {
+  userAccount.addEventListener("click", (e) => {
+      e.preventDefault();
+      accountModal.style.display = "flex";
+  });
+
+  activateAccount?.addEventListener("click", () => {
+      window.location.href = "admin_userM.html"; 
+  });
+
+  stayDeactivated?.addEventListener("click", () => {
+      window.location.href = "admin_userMDAcc.html";
+  });
+}

@@ -29,6 +29,7 @@
   <div class="main-content">
     <h1 class="title1">User <span class="highlight-name">Management</span></h1>
     <br>
+
     <div class="search-bar-wrapper">
       <div class="search-group">
         <input type="text" placeholder="Search Account" id="searchInput" class="search-input" />
@@ -36,73 +37,43 @@
           <img src="images/searchIcon.png" alt="Search"/>
         </button>
       </div>
-      <button class="add-goal-btn" id="viewDeactivated Accounts" title="Add Goal" onclick="redirectToPage()">
-        View Deactivated Accounts
+      <button class="backBtn" id="addGoalBtn" title="Add Goal" onclick="goBack()">
+        <img src="images/backIcon.png" alt="Search" class="addIcon"/>Back
       </button>
     </div>
    
     <div id="searchResults" class="search-results hidden"></div>
 
     <section class="title-content">
-        <h3 class="title2">List of Registered Accounts</h3>
+        <h3 class="title2">List of Deactivated Accounts</h3>
         <div class="goals-list">
-            <div class="goals-deadline" id="userDetails">
+            <div class="goals-deadline" id="userAccount">
               <h3>mothergaile@gmail.com</h3>
             </div>
         </div>          
     </section>
   </div>
 
-  <div id="viewUser" class="viewUser-modal">
-    <div class="viewUser-content">
-      <div class="title-wrapper">
-        <button class="delete-goal-btn" id="cancelViewUserModal">
-          <img src="images/deleteIcon.png" alt="Delete" />
-        </button>
-        <div class="title-center">
-            <span class="user">User </span>
-            <span class="details"> Details</span>
-        </div>
-      </div>    
-      <form class="form-grid">
-          <div class="form-group">
-            <label for="userEmail" class="categoryName">Email</label>
-            <input type="text" id="userEmail" class="inputC" readonly>
-          </div>
-        
-          <div class="form-group">
-            <label for="dateToday" class="categoryName">Last Login</label>
-            <input type="date" id="dateToday" class="inputC" readonly>
-          </div>
-        
-          <div class="card-row">
-            <div class="savings-card">
-              <label class="categoryName">Total Goal Created</label>
-              <div class="totalSavings">
-                <h3 class="totalSavingsH3" id="userTSavings1">13</h3>
-              </div>
-            </div>
-    
-            <div class="savings-card">
-              <label class="categoryName">Total Savings Added</label>
-              <div class="totalSavings">
-                <h3 class="totalSavingsH3" id="userTSavings2">P 30,000.00</h3>
-              </div>
-            </div>
-          </div>          
-      </form>
-    </div>
-  </div>
-
-    <div id="logoutModal" class="logout-modal">
-    <div class="modal-content">
-      <h3>Are you sure you want to log out?</h3>
-      <div class="modal-buttons">
-        <button id="confirmLogout" class="confirm-btn">Yes</button>
-        <button id="cancelLogout" class="cancel-btn">No</button>
+  <div id="accountModal" class="account-modal hide">
+    <div class="account-content">
+      <h3>Are you sure you want to make changes of this account?</h3>
+      <div class="account-buttons">
+        <button id="activateAccount" class="activate-btn">Activate Account</button>
+        <button id="stayDeactivated" class="sdeactivate-btn">Stay Deactivated</button>
       </div>
     </div>
-  </div>
+    </div>
+
+
+    <div id="logoutModal" class="logout-modal">
+        <div class="modal-content">
+        <h3>Are you sure you want to log out?</h3>
+        <div class="modal-buttons">
+            <button id="confirmLogout" class="confirm-btn">Yes</button>
+            <button id="cancelLogout" class="cancel-btn">No</button>
+        </div>
+        </div>
+    </div>
 
   <script src="js/viewUser.js"></script>
   <script src="js/dateLinksLogout.js"></script>

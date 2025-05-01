@@ -1,5 +1,5 @@
 function redirectToPage() {
-    window.location.href = 'admin_userAcc_D.html';
+    window.location.href = 'admin_userMDAcc.html';
 }
 
 function goBack() {
