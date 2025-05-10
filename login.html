@@ -1,4 +1,3 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,9 @@
   <link rel="icon" type="image/png" href="images/logo.svg">
   <link rel="stylesheet" href="css/login.css" />
   <link href="https://fonts.googleapis.com/css2?family=Garet&display=swap" rel="stylesheet" />
+  <!-- Security Enhancements -->
+  <meta name="autocomplete" content="off">
+  <meta name="google" content="noautocomplete">
 </head>
 <body>
   <div class="login-container">
@@ -29,12 +31,55 @@
         <h2 class="form-title">Log In</h2>
         <p class="form-subtitle">Enter your login details below.</p>
   
-        <form class="login-form">
-          <input type="text" placeholder="Username" class="input-field" />
-          <input type="password" placeholder="Password" class="input-field" />
-          <a href="forgotpass.html" class="forgot-password">Forgot password?</a>
-          <a href="user_home.html" class="login-btn">Log In</a>
+        <!-- Updated Form with Forgot Password -->
+        <form method="POST" action="pages/login.php" class="login-form" autocomplete="off">
+          <input type="text" 
+                 name="email" 
+                 placeholder="Email" 
+                 class="input-field"
+                 required>
+        
+          <input type="password" 
+                 name="password" 
+                 placeholder="Password" 
+                 class="input-field"
+                 required
+                 autocomplete="new-password">
+        
+          <button type="submit" class="login-btn">Log In</button>
+          
+          <!-- Added Forgot Password Link -->
+          <div class="forgot-password">
+            <a href="forgotpass.html">Forgot Password?</a>
+          </div>
         </form>
+        
+        <script>
+        // Enhanced error handling
+        document.addEventListener('DOMContentLoaded', function() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const error = urlParams.get('error');
+          
+          const errors = {
+            'missing_fields': 'Please enter both username and password',
+            'invalid_credentials': 'Invalid username or password', 
+            'database_error': 'System error - please try again'
+          };
+        
+          if (error && errors[error]) {
+            alert(errors[error]);
+            // Clear error from URL
+            history.replaceState({}, '', window.location.pathname);
+            
+            // Focus on appropriate field
+            if (error === 'missing_fields' && !urlParams.get('username')) {
+              document.querySelector('input[name="username"]').focus();
+            } else {
+              document.querySelector('input[name="password"]').focus();
+            }
+          }
+        });
+        </script>
       </div>
     </div>
   </div>

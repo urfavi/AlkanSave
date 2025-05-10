@@ -173,9 +173,10 @@ body {
     color: white;
     text-decoration: none;
     background-color: #c187cc;
+    border: 2px solid #c187cc;
     border-radius: 999px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
     display: block;
     margin: 0 auto; /* centers it */
     width: fit-content; /* keeps it as small as needed */

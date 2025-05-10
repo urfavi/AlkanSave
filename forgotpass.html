@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forgot Password</title>
+  <title>Forgot Password | AlkanSave</title>
   <link rel="icon" type="image/png" href="images/logo.svg">
   <link rel="stylesheet" href="css/forgotpass.css" />
 </head>
@@ -15,7 +15,7 @@
         <span class="text-alkan">Alkan</span><span class="text-save">Save</span>
       </h1>
       <h2 class="welcome-title"><span class="text-alkan">FORGOT</span> <span class="text-save">PASSWORD</span></h2>
-      <p class="subtagline">Don’t worry, we got you!</p>
+      <p class="subtagline">Don't worry, we got you!</p>
     </div>
 
     <div class="right-section">
@@ -25,17 +25,18 @@
 
       <div class="form-wrapper">
         <h2 class="form-title">Reset Password</h2>
-        <p class="form-subtitle">Follow the steps to recover your account.</p>
+        <p class="form-subtitle">Enter your email to receive a reset link</p>
 
-        <form class="login-form">
-          <input type="email" placeholder="Email Address" class="input-field" />
-          <button type="button" class="login-btn" style="margin-bottom: 15px;">Send Code</button>
-
-          <input type="text" placeholder="Enter Code" class="input-field" />
-          <input type="password" placeholder="New Password" class="input-field" />
-          <input type="password" placeholder="Confirm Password" class="input-field" />
-          <a href="login.html" class="login-btn" style="text-align: center; text-decoration: none;">Reset Password</a>
+        <form method="POST" action="pages/forgot-password.php" class="login-form">
+          <input type="email" name="email" placeholder="Email Address" class="input-field" required />
+          <button type="submit" class="login-btn">Send Reset Link</button>
         </form>
+
+        <?php if (isset($_GET['message'])): ?>
+          <div class="message" style="margin-top: 20px; text-align: center; color: #4CAF50;">
+            If your email exists in our system, you'll receive a reset link shortly.
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

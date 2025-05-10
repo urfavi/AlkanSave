@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Create Account</title>
+  <title>Create Account | AlkanSave</title>
   <link rel="icon" type="image/png" href="images/logo.svg">
   <link rel="stylesheet" href="css/signup.css" />
   <link href="https://fonts.googleapis.com/css2?family=Garet&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <!-- Error Message (added at top) -->
+  <?php if (isset($_GET['error'])): ?>
+    <div class="error-banner">
+      <?php 
+      switch ($_GET['error']) {
+        case 'duplicate':
+          echo 'Email already exists!';
+          break;
+        case 'validation':
+          echo 'Please check your input fields.';
+          break;
+        case 'database':
+          echo 'System error. Please try again.';
+          break;
+        default:
+          echo 'Signup failed. Please try again.';
+      }
+      ?>
+    </div>
+  <?php endif; ?>
+
   <div class="login-container">
     <div class="left-section">
       <img src="images/logo.svg" alt="AlkanSave Logo" class="logo-img" />
@@ -28,17 +49,67 @@
         <h2 class="form-title">Sign Up</h2>
         <p class="form-subtitle">Fill in the information below.</p>
 
-        <form class="login-form">
-          <input type="text" placeholder="First Name" class="input-field" />
-          <input type="text" placeholder="Last Name" class="input-field" />
-          <input type="email" placeholder="Email Address" class="input-field" />
-          <input type="date" placeholder="Date of Birth" class="input-field" />
-          <input type="password" placeholder="Password" class="input-field" />
-          <input type="password" placeholder="Confirm Password" class="input-field" />
-          <a href="login.html" class="login-btn" style="text-align: center; text-decoration: none;">Sign Up</a>
+        <!-- Updated Form -->
+        <form method="POST" action="pages/signup.php" class="login-form" id="signupForm" autocomplete="off">
+          <input type="text" name="first_name" placeholder="First Name" class="input-field" required 
+                 minlength="2" maxlength="50" pattern="[A-Za-z ]+" title="Letters only">
+          
+          <input type="text" name="last_name" placeholder="Last Name" class="input-field" required 
+                 minlength="2" maxlength="50" pattern="[A-Za-z ]+" title="Letters only">
+          
+          <input type="email" name="email" placeholder="Email Address" class="input-field" required 
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          
+          <input type="date" name="dob" placeholder="Date of Birth" class="input-field" required
+                 max="<?php echo date('Y-m-d', strtotime('-13 years')); ?>">
+          
+          <input type="password" name="password" placeholder="Password" class="input-field" required
+                 minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                 title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters">
+          
+          <input type="password" name="confirm_password" placeholder="Confirm Password" class="input-field" required>
+          
+          <button type="submit" class="login-btn">Sign Up</button>
         </form>
       </div>
     </div>
   </div>
+
+  <!-- CSS for error messages -->
+  <style>
+    .error-banner {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffebee;
+      color: #c62828;
+      padding: 12px 24px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+      font-family: 'Garet', sans-serif;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; top: 0; }
+      to { opacity: 1; top: 20px; }
+    }
+  </style>
+
+  <!-- Client-side validation -->
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      const password = document.querySelector('input[name="password"]').value;
+      const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Passwords do not match!');
+        return false;
+      }
+      return true;
+    });
+  </script>
 </body>
 </html>
